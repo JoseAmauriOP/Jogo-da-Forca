@@ -1,5 +1,5 @@
 import random as rd
-palavra = ['melao','mamao', 'amora', 'limao','manga','uvaia']
+palavra = ['melao','mamao', 'amora', 'limao','manga','uvaia','cabel','cacau', 'caqui', 'cidra']
 palavra_escolhida = rd.choice(palavra)
 
 print('Olá, vamo jogar um jogo da forca')
@@ -23,7 +23,10 @@ for i in range(6):
         print(''.join(letras_palavra))
         print('Parabéns você acertou uma letra')
         opc = input('Digite S de sim para chutar ou digite N de não para ir para proxima tentativa:')
-        opc =opc.upper()
+        while opc != 'S' and opc != 'N': 
+            print('opção invalida:')
+            opc = input('Digite S de sim para chutar ou digite N de não para ir para proxima tentativa:')
+            opc =opc.upper()
         if opc == 'S':
             chute = input('Sabe a palavra, vamos lá diga:')
             if chute == palavra_escolhida:
@@ -37,7 +40,18 @@ for i in range(6):
             else:
                  pass
         else:
-            print('opção invalida:')
-                 
+            pass
+    elif i == 6:
+        print('Suas tentativas acabaram, mas você tem um chute ainda pra fazer')
+        chute = input('Sabe a palavra, vamos lá diga:')
+        if chute == palavra_escolhida:
+            print('Parabéns você acertou, a palavra era {} e voce acertou na {}º tentativa, incrivel'.format(palavra_escolhida, i))
+            break
+        else:
+            print('Infelizmente você não conseguiu, a palavra era {}'.format(palavra_escolhida))
+            break
+    else:
+        print('Voce errou, vamos para a proxima')
+
 
     
